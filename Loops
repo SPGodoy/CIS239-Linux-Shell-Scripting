@@ -1,0 +1,102 @@
+#!/bin/bash
+
+# ----------------------------------------
+# Assignment 5 - Loops
+# Purpose: demonstrate basic and more
+# advanced loops using for and while
+# ----------------------------------------
+
+echo "----------------------------------------"
+echo "Assignment 5 - Loops"
+echo "----------------------------------------"
+echo ""
+
+# Basic for loop with numbers
+echo "Basic for loop with numbers"
+for num in 1 2 3 4 5
+do
+    echo "Number: $num"
+done
+echo ""
+
+# For loop with words
+echo "For loop with words"
+for word in Linux Shell Scripting CIS239 Bash
+do
+    echo "Word: $word"
+done
+echo ""
+
+# For loop through files
+echo "For loop through shell scripts"
+for file in *.sh
+do
+    if [ -e "$file" ]; then
+        echo "Shell script found: $file"
+    fi
+done
+echo ""
+
+# Basic while loop countdown
+echo "While loop countdown"
+count=5
+while [ $count -gt 0 ]
+do
+    echo "Countdown: $count"
+    count=$((count - 1))
+done
+echo "Blast off"
+echo ""
+
+# While loop counting upward
+echo "While loop counting upward"
+counter=1
+while [ $counter -le 5 ]
+do
+    echo "Counter: $counter"
+    counter=$((counter + 1))
+done
+echo ""
+
+# Loop through arguments
+echo "Loop through script arguments"
+for arg in "$@"
+do
+    echo "Argument: $arg"
+done
+echo ""
+
+# File counting loop
+echo "Directory listing with numbering"
+index=1
+for item in *
+do
+    echo "$index. $item"
+    index=$((index + 1))
+done
+echo ""
+
+# Nested loop example
+echo "Nested loop example"
+for row in 1 2 3
+do
+    for col in 1 2 3
+    do
+        echo "Row $row, Column $col"
+    done
+done
+echo ""
+
+# Loop with condition inside
+echo "Even or odd check"
+for n in 1 2 3 4 5 6
+do
+    if [ $((n % 2)) -eq 0 ]; then
+        echo "$n is even"
+    else
+        echo "$n is odd"
+    fi
+done
+echo ""
+
+echo "End of Assignment 5"
