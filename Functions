@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Assignment 8 - Functions & Exit Codes
+# This script shows how functions use parameters,
+# return values, and basic script structure
+
+# Function to print header
+show_header() {
+    echo "----------------------------------------"
+    echo "Assignment 8 - Functions & Exit Codes"
+    echo "----------------------------------------"
+    echo ""
+}
+
+# Function to greet user
+greet() {
+    echo "Hello $1"
+}
+
+# Function that uses multiple arguments
+show_info() {
+    name=$1
+    shift
+    echo "Name: $name"
+    echo "Extra info: $@"
+    echo ""
+}
+
+# Function to check file
+check_file() {
+    if [ -f "$1" ]; then
+        echo "File '$1' exists"
+        return 0
+    else
+        echo "File '$1' does not exist"
+        return 1
+    fi
+}
+
+# Function to simulate an action and return different codes
+process_user() {
+    username=$1
+
+    if [ -z "$username" ]; then
+        echo "No username given"
+        return 1
+    fi
+
+    if [ "$username" = "admin" ]; then
+        echo "Admin user detected"
+        return 2
+    fi
+
+    echo "User $username processed"
+    return 0
+}
+
+# Main script starts here
+show_header
+
+echo "Greeting function"
+greet "Shey"
+echo ""
+
+echo "Using multiple arguments"
+show_info "Shey" student CIS239
+echo ""
+
+echo "File check"
+check_file "assignment1.sh"
+file_status=$?
+echo "Return code: $file_status"
+echo ""
+
+echo "Process user function"
+process_user "$1"
+user_status=$?
+
+echo "Return code from process_user: $user_status"
+
+# Check return codes
+if [ $user_status -eq 1 ]; then
+    echo "Error: missing username"
+elif [ $user_status -eq 2 ]; then
+    echo "Special case: admin user"
+else
+    echo "User processed successfully"
+fi
+
+echo ""
+echo "End of Assignment 8"
