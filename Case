@@ -1,0 +1,98 @@
+#!/bin/bash
+
+# Assignment 7 - Case
+# This script shows different ways to use case statements
+
+echo "----------------------------------------"
+echo "Assignment 7 - Case"
+echo "----------------------------------------"
+echo ""
+
+echo "Menu Options"
+echo "1 - Show date"
+echo "2 - Show current directory"
+echo "3 - Show current user"
+echo "4 - List files"
+echo "5 - Count files"
+echo "6 - Show script name"
+echo "7 - Show system information"
+echo "q - Quit"
+echo ""
+
+read -p "Enter your choice: " choice
+
+case $choice in
+    1)
+        echo "Date: $(date)"
+        ;;
+    2)
+        echo "Current directory: $(pwd)"
+        ;;
+    3)
+        echo "Current user: $(whoami)"
+        ;;
+    4)
+        echo "Files in this directory:"
+        ls
+        ;;
+    5)
+        count=$(ls | wc -l)
+        echo "Number of files: $count"
+        ;;
+    6)
+        echo "Script name: $(basename "$0")"
+        ;;
+    7)
+        echo "User: $(whoami)"
+        echo "Host: $(hostname)"
+        echo "Directory: $(pwd)"
+        echo "Shell: $SHELL"
+        ;;
+    q|Q)
+        echo "Goodbye"
+        ;;
+    *)
+        echo "Invalid choice"
+        ;;
+esac
+
+echo ""
+echo "File Type Checker"
+read -p "Enter a filename: " filename
+
+case $filename in
+    *.sh)
+        echo "This is a shell script file"
+        ;;
+    *.md)
+        echo "This is a markdown file"
+        ;;
+    *.txt)
+        echo "This is a text file"
+        ;;
+    *)
+        echo "File type not recognized"
+        ;;
+esac
+
+echo ""
+echo "Role Checker"
+read -p "Enter a role (student, admin, guest): " role
+
+case $role in
+    student)
+        echo "You entered student"
+        ;;
+    admin)
+        echo "You entered admin"
+        ;;
+    guest)
+        echo "You entered guest"
+        ;;
+    *)
+        echo "Unknown role"
+        ;;
+esac
+
+echo ""
+echo "End of Assignment 7"
