@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# Assignment 9 - Capstone Project
+# This script uses functions, case, and test
+
+student="Shey"
+course="CIS239"
+
+show_header() {
+    echo "----------------------------------------"
+    echo "$course Final Project"
+    echo "Student: $student"
+    echo "----------------------------------------"
+    echo ""
+}
+
+show_menu() {
+    echo "1 - Show user"
+    echo "2 - List files"
+    echo "3 - Check file"
+    echo "4 - Quit"
+    echo ""
+}
+
+show_user() {
+    echo "User: $(whoami)"
+    echo "Directory: $(pwd)"
+    echo ""
+}
+
+list_files() {
+    echo "Files:"
+    ls
+    echo ""
+}
+
+check_file() {
+    read -p "Enter a filename: " filename
+
+    if [ -f "$filename" ]; then
+        echo "File exists"
+    else
+        echo "File does not exist"
+    fi
+    echo ""
+}
+
+show_header
+
+while true
+do
+    show_menu
+    read -p "Choose an option: " choice
+    echo ""
+
+    case $choice in
+        1)
+            show_user
+            ;;
+        2)
+            list_files
+            ;;
+        3)
+            check_file
+            ;;
+        4)
+            echo "Goodbye"
+            break
+            ;;
+        *)
+            echo "Invalid choice"
+            echo ""
+            ;;
+    esac
+done
+
+echo "End of Final Project"
