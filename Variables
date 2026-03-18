@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# ----------------------------------------
+# Assignment 2 - Variables
+# Purpose: demonstrate string variables,
+# numeric variables, arithmetic, command
+# substitution, environment variables,
+# and combined output
+# ----------------------------------------
+
+# String variables
+student="SGodoy"
+course="CIS239"
+topic="Variables"
+semester="Fall"
+
+# Numeric variables
+num1=15
+num2=5
+num3=2
+
+# Arithmetic with variables
+sum=$((num1 + num2))
+difference=$((num1 - num2))
+product=$((num1 * num2))
+quotient=$((num1 / num2))
+power_result=$((num2 ** num3))
+
+# Command substitution
+current_user=$(whoami)
+current_dir=$(pwd)
+today=$(date)
+host_name=$(hostname)
+script_name=$(basename "$0")
+file_count=$(ls | wc -l)
+
+# Combined string variables
+report_title="CIS239 Variable Report"
+student_message="$student is studying $topic in $course during $semester"
+location_message="$current_user is working in $current_dir on $host_name"
+
+echo "----------------------------------------"
+echo "$report_title"
+echo "----------------------------------------"
+echo ""
+
+echo "Student Information"
+echo "Student: $student"
+echo "Course: $course"
+echo "Topic: $topic"
+echo "Semester: $semester"
+echo ""
+
+echo "Math Operations"
+echo "num1 = $num1"
+echo "num2 = $num2"
+echo "num3 = $num3"
+echo "sum = $sum"
+echo "difference = $difference"
+echo "product = $product"
+echo "quotient = $quotient"
+echo "num2 to the power of num3 = $power_result"
+echo ""
+
+echo "Command Substitution Values"
+echo "Current user: $current_user"
+echo "Current directory: $current_dir"
+echo "Host name: $host_name"
+echo "Today's date: $today"
+echo "Script name: $script_name"
+echo "Files in directory: $file_count"
+echo ""
+
+echo "Environment Variables"
+echo "HOME = $HOME"
+echo "SHELL = $SHELL"
+echo "PATH = $PATH"
+echo ""
+
+echo "Combined Messages"
+echo "$student_message"
+echo "$location_message"
+echo ""
+
+echo "Script Arguments"
+echo "Argument count: $#"
+echo "First argument: $1"
+echo "Second argument: $2"
+echo ""
+
+echo "End of Assignment 2"
