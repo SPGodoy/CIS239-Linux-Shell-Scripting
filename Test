@@ -1,0 +1,127 @@
+#!/bin/bash
+
+# Assignment 6 - Test
+# This script shows different ways to test numbers, strings, files, and arguments
+
+echo "----------------------------------------"
+echo "Assignment 6 - Test"
+echo "----------------------------------------"
+echo ""
+
+# Number tests
+score1=72
+score2=85
+
+echo "Number Tests"
+if [ $score1 -lt $score2 ]; then
+    echo "$score1 is less than $score2"
+fi
+
+if [ $score2 -gt 80 ]; then
+    echo "$score2 is greater than 80"
+fi
+
+if [ $score1 -ne $score2 ]; then
+    echo "$score1 and $score2 are not equal"
+fi
+echo ""
+
+# String tests
+student="Shey"
+course="CIS239"
+blank=""
+
+echo "String Tests"
+if [ "$student" = "Shey" ]; then
+    echo "The student name is Shey"
+fi
+
+if [ "$course" != "CIS240" ]; then
+    echo "This is not CIS240"
+fi
+
+if [ -n "$student" ]; then
+    echo "The student variable is not empty"
+fi
+
+if [ -z "$blank" ]; then
+    echo "The blank variable is empty"
+fi
+echo ""
+
+# File and directory tests
+echo "File and Directory Tests"
+if [ -f "$0" ]; then
+    echo "This script file exists"
+fi
+
+if [ -r "$0" ]; then
+    echo "This script file can be read"
+fi
+
+if [ -d "." ]; then
+    echo "The current directory exists"
+fi
+echo ""
+
+# Check for one file from the repo
+echo "Checking for a file"
+if [ -f "assignment1.sh" ]; then
+    echo "assignment1.sh was found"
+else
+    echo "assignment1.sh was not found"
+fi
+echo ""
+
+# More practical number test
+number=7
+echo "Even or Odd Test"
+if [ $((number % 2)) -eq 0 ]; then
+    echo "$number is even"
+else
+    echo "$number is odd"
+fi
+echo ""
+
+# Combined test
+age=18
+role="student"
+
+echo "Combined Test"
+if [ $age -ge 18 ] && [ "$role" = "student" ]; then
+    echo "This person is an adult student"
+fi
+echo ""
+
+# Argument tests
+echo "Argument Tests"
+if [ $# -eq 0 ]; then
+    echo "No arguments were passed"
+else
+    echo "Arguments were passed"
+fi
+
+if [ $# -ge 1 ]; then
+    echo "First argument: $1"
+fi
+
+if [ $# -ge 2 ]; then
+    echo "Second argument: $2"
+fi
+echo ""
+
+# Grade example
+grade=85
+echo "Grade Test"
+if [ $grade -ge 90 ]; then
+    echo "Grade: A"
+elif [ $grade -ge 80 ]; then
+    echo "Grade: B"
+elif [ $grade -ge 70 ]; then
+    echo "Grade: C"
+else
+    echo "Grade: Needs Improvement"
+fi
+echo ""
+
+echo "End of Assignment 6"
