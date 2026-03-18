@@ -1,0 +1,29 @@
+# ----------------------------------------
+# Assignment 1 - First Script
+# CIS 239 Linux Shell Scripting
+# Purpose: print basic text and system info
+# ----------------------------------------
+
+echo "Hello World"
+echo "Welcome to CIS239 Linux Shell Scripting"
+echo ""
+
+# Basic system information
+echo "User: $(whoami)"
+echo "Host: $(hostname)"
+echo "Current directory: $(pwd)"
+echo "Date: $(date)"
+echo ""
+
+# Show script-related info
+echo "This script is running with Bash"
+echo "Script name: $0"
+echo "Number of arguments passed: $#"
+echo ""
+
+# Show a simple directory summary
+echo "Files in this directory:"
+ls
+echo ""
+
+echo "End of Assignment 1"
